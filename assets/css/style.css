@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
+:root {
+    --White: hsl(0, 0%, 100%);
+    --LightPink: hsl(275, 100%, 97%);
+    --GrayishPurple: hsl(292, 16%, 49%);
+    --DarkPurple: hsl(292, 42%, 14%);
+}
+
+body {
+    background-color: var(--LightPink);
+}
+
+.container {
+    width: 100%;
+    background: url(../images/background-pattern-desktop.svg);
+    height: 35vh;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--White);
+}
+
+.accordion {
+    width: 100%;
+    font-family: "Work Sans", sans-serif;
+}
+
+.accordion-item {
+    border: 1px solid #eee;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.accordion-header {
+    color: var(--DarkPurple);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header img {
+    width: 20px;
+}
+
+.accordion-content {
+    padding: 10px;
+    display: none;
+    font-weight: 500;
+    color: var(--GrayishPurple);
+}
+
+@media (max-width: 500px) {
+    .content {
+        width: 90%;
+    }
+}
