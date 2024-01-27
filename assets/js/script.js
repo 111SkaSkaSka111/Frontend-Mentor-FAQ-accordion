@@ -1,22 +1,4 @@
 // document.addEventListener("DOMContentLoaded", function () {
-//     const accordionItem = document.querySelectorAll(".accordion-item");
-
-//     accordionItem.forEach((item) => {
-//         const header = document.querySelector(".accordion-header");
-
-//         header.addEventListener("click", function () {
-//             const content = item.querySelector(".accordion-content");
-
-//             if (content.style.display === "none") {
-//                 content.style.display = "block";
-//             } else {
-//                 content.style.display = "none";
-//             }
-//         });
-//     });
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
 //     const accordion = document.querySelector(".accordion");
 
 //     accordion.addEventListener("click", function (event) {
@@ -32,6 +14,7 @@
 //                 if (otherItem !== item && otherItem.classList.contains("active")) {
 //                     otherItem.classList.remove("active");
 //                     otherItem.querySelector(".accordion-content").style.display = "none";
+//                     otherItem.querySelector(".accordion-icon").src = "assets/images/icon-plus.svg";
 //                 }
 //             });
 
@@ -39,6 +22,10 @@
 //             item.classList.toggle("active", !isOpen);
 //             const content = item.querySelector(".accordion-content");
 //             content.style.display = !isOpen ? "block" : "none";
+
+//             // Ubah gambar pada accordion saat ini
+//             const icon = item.querySelector(".accordion-icon");
+//             icon.src = isOpen ? "assets/images/icon-plus.svg" : "assets/images/icon-minus.svg";
 //         }
 //     });
 // });
@@ -46,6 +33,18 @@
 document.addEventListener("DOMContentLoaded", function () {
     const accordion = document.querySelector(".accordion");
 
+    // Mengambil referensi dari semua item accordion
+    const allAccordionItems = accordion.querySelectorAll(".accordion-item");
+
+    // Membuka accordion pertama
+    const firstAccordionItem = allAccordionItems[0];
+    firstAccordionItem.classList.add("active");
+    const firstAccordionContent = firstAccordionItem.querySelector(".accordion-content");
+    firstAccordionContent.style.display = "block";
+    const firstAccordionIcon = firstAccordionItem.querySelector(".accordion-icon");
+    firstAccordionIcon.src = "assets/images/icon-minus.svg";
+
+    // Menambahkan event listener pada accordion
     accordion.addEventListener("click", function (event) {
         const header = event.target.closest(".accordion-header");
 
@@ -54,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const isOpen = item.classList.contains("active");
 
             // Menutup semua accordion yang terbuka sebelumnya
-            const allAccordionItems = accordion.querySelectorAll(".accordion-item");
             allAccordionItems.forEach((otherItem) => {
                 if (otherItem !== item && otherItem.classList.contains("active")) {
                     otherItem.classList.remove("active");
