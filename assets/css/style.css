@@ -1,10 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
 
 :root {
     --White: hsl(0, 0%, 100%);
@@ -45,9 +45,12 @@ body {
 }
 
 .accordion-item {
-    border: 1px solid #eee;
-    border-radius: 7px;
+    border-bottom: 1px solid #bbb;
     padding: 10px;
+}
+
+.accordion-item.active .accordion-content {
+    /* display: block; */
 }
 
 .accordion-header {
